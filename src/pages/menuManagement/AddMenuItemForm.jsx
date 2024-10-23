@@ -1,5 +1,3 @@
-// src/components/AddMenuItemForm.js
-
 import React, { useState } from "react";
 import {
   TextField,

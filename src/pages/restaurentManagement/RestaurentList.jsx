@@ -35,19 +35,6 @@ const RestaurantList = () => {
     { id: 3, name: "Urban Bites" },
   ]);
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         const response = await axios.get("https://rms.techsistltd.com/restaurant/v1/restaurant/");
-  //         setRestaurants(response.data);
-  //       } catch (error) {
-  //         console.error("Error fetching restaurants ....:", error);
-  //       }
-  //     };
-
-  //     fetchData();
-  //   }, []);
-
   const handleAddEditOpen = (restaurant = { id: null, name: "" }) => {
     setSelectedRestaurant(restaurant);
     setIsEditing(!!restaurant.id);

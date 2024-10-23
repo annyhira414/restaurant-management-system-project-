@@ -1,6 +1,6 @@
 // import { createSlice } from '@reduxjs/toolkit';
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 // const initialState = {
 //   restaurantListState: '',
@@ -18,23 +18,18 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 // export const { setRestaurantListState } = restaurantListSlice.actions;
 
-const REDUCER_NAME = 'restaurantApp/restaurantList';
+const REDUCER_NAME = "restaurantApp/restaurantList";
 
-export const fetchRestaurantList = createAsyncThunk(
-  `${REDUCER_NAME}/fetchRestaurantList`,
-  async (params) => {
-    try {
-      const response = await fetch(
-        'https://rms.techsistltd.com/restaurant/v1/restaurant/'
-      );
-      console.log('response', response);
-      const responseData = await response?.data;
-      return responseData?.data;
-    } catch (e) {
-      console.log('error', e);
-    }
+export const fetchRestaurantList = createAsyncThunk(`${REDUCER_NAME}/fetchRestaurantList`, async (params) => {
+  try {
+    const response = await fetch("https://rms.abc.com/restaurant/v1/restaurant/");
+    console.log("response", response);
+    const responseData = await response?.data;
+    return responseData?.data;
+  } catch (e) {
+    console.log("error", e);
   }
-);
+});
 
 const restaurantListSlice = createSlice({
   name: REDUCER_NAME,
@@ -42,7 +37,7 @@ const restaurantListSlice = createSlice({
     isLoading: false,
     isError: false,
     data: null,
-    error: '',
+    error: "",
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -54,12 +49,11 @@ const restaurantListSlice = createSlice({
         return { isLoading: true, isError: false, data: null };
       })
       .addCase(fetchRestaurantList.rejected, (state, action) => {
-        return { isLoading: false, isError: true, data: null, error: '' };
+        return { isLoading: false, isError: true, data: null, error: "" };
       });
   },
 });
 
-export const selectRestaurantList = (state) =>
-  state.restaurantApp?.restaurantList;
+export const selectRestaurantList = (state) => state.restaurantApp?.restaurantList;
 
 export default restaurantListSlice.reducer;

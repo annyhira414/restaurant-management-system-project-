@@ -1,4 +1,3 @@
-// EmployeeProfile.js
 import React, { useState } from "react";
 import {
   Box,
@@ -18,7 +17,7 @@ import AddMenuItemForm from "./AddMenuItemForm";
 
 const MenuItemDetails = () => {
   const [open, setOpen] = useState(false);
-  const [showForm, setShowForm] = useState(false); // State to toggle form visibility
+  const [showForm, setShowForm] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
